@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+nav {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #4B0082; /* your purple */
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* New: style the logout <button> just like a link */
+nav form button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: #4B0082;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+nav form button:hover,
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav form button:focus {
+  outline: none;
+}
+
+main {
+  margin-top: 1rem;
+}
+
+form {
+  background: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+ul.messages {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+ul.messages li {
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-left-width: 4px;
+}
+
+ul.messages li.success { border-left-color: green; }
+ul.messages li.error   { border-left-color: red; }
+ul.messages li.info    { border-left-color: blue; }
+ul.messages li.warning { border-left-color: orange; }
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+}

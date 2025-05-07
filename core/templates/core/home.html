@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>Welcome to my Django site!</h1>
+  <p>This project was made by Alperen Atalay (79084).</p>
+
+  <h2>All Posts:</h2>
+  <ul>
+    {% for post in posts %}
+      <li>
+        <strong>{{ post.title }}</strong>: {{ post.content }}
+        {% if user.is_authenticated %}
+          <a href="{% url 'post_delete' post.pk %}">Delete</a>
+        {% endif %}
+      </li>
+    {% empty %}
+      <li>No posts yet.</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'add_post' %}">Add a new post</a>
+{% endblock %}
