@@ -32,7 +32,11 @@ ROOT_URLCONF = 'site79084.urls'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  [
+    '127.0.0.1',
+    'localhost',
+    'alpern35-e3e189ce227d.herokuapp.com',
+]
 
 
 # Application definition
