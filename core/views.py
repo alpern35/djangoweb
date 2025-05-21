@@ -6,6 +6,9 @@ from .forms import PostForm, ProfileForm
 from .models import Profile
 from .models import Post
 
+from rest_framework import viewsets
+from .serializers import PostSerializer
+from .tasks import send_new_post_email
 
 def home(request):
     posts = Post.objects.all()
@@ -67,6 +70,21 @@ def post_update(request, pk):
         form.save()
         return redirect('home')
     return render(request, 'core/post_form.html', {'form': form})
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all().order_by('-created_at')
+    serializer_class = PostSerializer
+
+    def perform_create(self, serializer):
+        # Save the Post instance
+        post = serializer.save()
+        # Queue the Celery task to send notification
+        send_new_post_email.delay(post.id)
+
+
+
+
+
 
 
 
